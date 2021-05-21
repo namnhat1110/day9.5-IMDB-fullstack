@@ -6,7 +6,9 @@ const initialState = {
   id: null,
   email: [],
   password: "",
+  loading: false,
   isAuthenticated: !!token,
+  redirectToHomePage: false
 };
 
 const userReducer = (state = initialState, action) => {
