@@ -22,7 +22,7 @@ const userSchema = Schema(
 userSchema.methods.generateToken = function () {
   const user = this;
   const token = jwt.sign({ id: user._id }, JWT_SECRET_KEY, {
-    expiresIn: "365dtoken",
+    expiresIn: "365d",
   });
   return token;
 };

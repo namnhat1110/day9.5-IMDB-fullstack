@@ -6,12 +6,15 @@ const initialState = {
 };
 
 const movieReducer = (state = initialState, action) => {
-  // const { type, payload } = action;
-  const { type } = action;
+  const { type, payload } = action;
 
   switch (type) {
     case types.FETCH_START:
     case types.FETCH_SUCCESS:
+      return {
+        ...state,
+        movies: payload
+      }
     case types.FETCH_FAILURE:
     default:
       return state;
