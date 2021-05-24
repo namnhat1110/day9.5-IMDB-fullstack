@@ -14,8 +14,41 @@ const getAll = () => async (dispatch) => {
   }
 };
 
+const createMovie = (movie) => async (dispatch) => {
+  try {
+    dispatch({ type: types.CREATE_START });
+    const { data } = await api.post('/movies', movie);
+    dispatch({ type: types.CREATE_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: types.CREATE_FAILURE });
+  }
+};
+
+const updateMovie = (movie) => async (dispatch) => {
+  try {
+    dispatch({ type: types.UPDATE_START });
+    const { data } = await api.patch(`/movies/${movie._id}`, movie);
+    dispatch({ type: types.UPDATE_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: types.UPDATE_FAILURE });
+  }
+};
+
+const deleteMovie = (movie) => async (dispatch) => {
+  try {
+    dispatch({ type: types.DELETE_START });
+    const { data } = await api.delete(`/movies/${movie._id}`);
+    dispatch({ type: types.DELETE_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: types.DELETE_FAILURE })
+  }
+};
+
 const movieActions = {
   getAll,
+  createMovie,
+  updateMovie,
+  deleteMovie
 };
 
 export { movieActions };

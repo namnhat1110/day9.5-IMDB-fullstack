@@ -8,7 +8,7 @@ import {
 
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, Redirect } from 'react-router-dom';
-import { authActions } from '../redux/actions';
+import { authActions } from '../redux/actions/user.actions';
 
 
 function UpdateUserPage() {

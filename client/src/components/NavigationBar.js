@@ -4,6 +4,8 @@ import { Nav, Navbar, Form, FormControl, Button } from 'react-bootstrap'
 
 
 const NavigationBar = ({ query, setQuery }) => {
+
+
     const onChange = (e) => {
         e.preventDefault();
         setQuery(e.target.value);
@@ -18,6 +20,9 @@ const NavigationBar = ({ query, setQuery }) => {
                     <Nav className='mr-auto'>
                         <Nav.Link as={Link} to="/">Home</Nav.Link>
                     </Nav>
+                    <Nav.Link as={Link} to={`/create`}>
+                        Create new movie
+                  </Nav.Link>
                     <Form inline>
                         <FormControl type="text" placeholder="Movie..." value={query}
                             onChange={onChange} className="mr-sm-2" />
